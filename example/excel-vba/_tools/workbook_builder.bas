@@ -83,6 +83,27 @@ Private Function BuildUniqueFilePath(aPath, aName, aExtentionName) 'As String
     BuildUniqueFilePath = tmp
 End Function
 
+'Private Function ConvCrLf(aPath As String) As String
+Private Function ConvCrLf(aPath)
+    Dim fso 'As FileSystemObject
+    Set fso = GetFileSystemObject()
+    
+    Dim tmp 'As String
+    tmp = fso.BuildPath(fso.BuildPath(GetScriptFolderName(), ".tmp"), "module.txt")
+    
+    Dim src
+    Set src = fso.OpenTextFile(aPath, 1, False)
+    
+    Dim dst
+    Set dst = fso.OpenTextFile(tmp, 2, True)
+    
+    dst.Write Replace(Replace(src.ReadAll, vbCrLf, vbLf), vbLf, vbCrLf)
+    dst.Close
+    src.Close
+    
+    ConvCrLf = tmp
+End Function
+
 Public Sub BuildWorkbookFile(t)
     Dim appExcel 'As Excel.Application
     Set appExcel = GetExcelApplication()
@@ -101,7 +122,7 @@ Public Sub BuildWorkbookFile(t)
     Dim tmp 'As String
     Set dic = GetVbaModules(t)
     For Each tmp In dic.Items()
-        wbk.VBProject.VBComponents.Import fso.BuildPath(cur, tmp)
+        wbk.VBProject.VBComponents.Import ConvCrLf(fso.BuildPath(cur, tmp))
     Next 'tmp
     
     Dim fnm 'As String
