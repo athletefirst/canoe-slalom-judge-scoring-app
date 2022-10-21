@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@google/clasp": "^2.4.1",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/google-apps-script": "^1.0.47",
+    "@types/jest": "^27.5.0",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "gas-client": "^1.0.0",
+    "immer": "^9.0.15",
+    "parcel": "^2.6.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-number-format": "^4.9.3",
+    "react-scripts": "5.0.1",
+    "react-virtuoso": "^2.16.4",
+    "use-immer": "^0.7.0",
+    "zx": "^6.1.0"
+  },
+  "scripts": {
+    "test": "react-scripts test",
+    "login": "npx zx package.json.md -- clasp-login",
+    "logout": "npx zx package.json.md -- clasp-logout",
+    "pull": "npx zx package.json.md -- pull-appscript",
+    "build": "npx zx package.json.md -- build-push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

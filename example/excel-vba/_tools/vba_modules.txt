@@ -1,0 +1,14 @@
+optional	./export_modules.bas
+required	../gasslalom/GasSlalom.bas
+required	../imports/vba-json/JsonConverter.bas
+optional	../gasslalom/RecordSheet.bas
+optional	../gasslalom/RunnerSheet.bas
+optional	../gasslalom/TestGasSlalom.bas
+required	../imports/vba-web/src/WebHelpers.bas
+optional	./workbook_builder.bas
+optional	./WScript.bas
+required	../imports/vba-dictionary/Dictionary.cls
+required	../imports/vba-web/src/IWebAuthenticator.cls
+required	../imports/vba-web/src/WebClient.cls
+required	../imports/vba-web/src/WebRequest.cls
+required	../imports/vba-web/src/WebResponse.cls
