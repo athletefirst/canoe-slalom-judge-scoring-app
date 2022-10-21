@@ -1,0 +1,92 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "GAS login",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "zx",
+                "package.json.md",
+                "--",
+                "clasp-login",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "GAS logout",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "zx",
+                "package.json.md",
+                "--",
+                "clasp-logout",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "GAS clone",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "zx",
+                "package.json.md",
+                "--",
+                "clone-apps",
+                "${input:scriptId}",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "GAS build to push",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "zx",
+                "package.json.md",
+                "--",
+                "build-push",
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "GAS pull",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "zx",
+                "package.json.md",
+                "--",
+                "pull-appscript",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "GAS open",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "zx",
+                "package.json.md",
+                "--",
+                "clasp-open",
+            ],
+            "problemMatcher": []
+        },
+    ],
+    "inputs": [
+        {
+            "id": "scriptId",
+            "description": "Script ID",
+            "default": "",
+            "type": "promptString"
+        },
+    ]
+}
